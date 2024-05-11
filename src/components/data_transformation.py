@@ -24,8 +24,8 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         '''
-        This function si responsible for data trnasformation
-        
+        This function is responsible for data trnasformation
+
         '''
         try:
             numerical_columns = ["writing_score", "reading_score"]
@@ -50,7 +50,7 @@ class DataTransformation:
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
                 ("one_hot_encoder",OneHotEncoder()),
-                ("scaler",StandardScaler(with_mean=False))
+                ("scaler",StandardScaler())
                 ]
 
             )
@@ -85,7 +85,7 @@ class DataTransformation:
 
             preprocessing_obj=self.get_data_transformer_object()
 
-            target_column_name="math_score"
+            target_column_name='math_score'
             numerical_columns = ["writing_score", "reading_score"]
 
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
